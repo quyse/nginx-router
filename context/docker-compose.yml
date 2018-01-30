@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+  nginx:
+    build:
+      context: .
+    image: nginx-router:latest
+    network_mode: host
+    restart: on-failure
+    volumes:
+    - "/opt/nginx/conf.d:/etc/nginx/conf.d"
+    - "/opt/nginx/data:/data"
+    - "/opt/nginx/socks:/socks"
+    - "/opt/nginx/letsencrypt:/letsencrypt"
+    - "/opt/nginx/certbot_root:/certbot_root"
+    ulimits:
+      nofile: 100000
+    labels:
+      service: nginx

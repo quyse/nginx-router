@@ -1,0 +1,19 @@
+- hosts: all
+  remote_user: root
+  tasks:
+  # deploy your app
+  # ...
+
+  # deploy nginx config
+  - name: deploy nginx config
+    synchronize:
+      src: "nginx.conf/example.com.nginx.conf"
+      dest: "/opt/nginx/conf.d/"
+      owner: no
+      group: no
+    notify:
+    - reload nginx
+  # reload nginx if anything changes
+  handlers:
+  - name: reload nginx
+    command: "/opt/nginx/reload.sh"
