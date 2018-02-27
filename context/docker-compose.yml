@@ -6,7 +6,7 @@ services:
       context: .
     image: nginx-router:latest
     network_mode: host
-    restart: on-failure
+    restart: unless-stopped
     volumes:
     - "/opt/nginx/conf.d:/etc/nginx/conf.d"
     - "/opt/nginx/data:/data"
