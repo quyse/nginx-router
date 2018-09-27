@@ -46,10 +46,6 @@
       cron_file: nginx_letsencrypt_certs
       user: root
       name: "renew letsencrypt certs"
-      job: >-
-        docker run --rm
-        -v /opt/nginx/certbot_root:/webroot
-        -v /opt/nginx/letsencrypt:/etc/letsencrypt
-        certbot/certbot renew -n
+      job: "/opt/nginx/renew.sh && /opt/nginx/reload.sh"
       hour: "0"
       minute: "0"
