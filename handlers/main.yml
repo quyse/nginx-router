@@ -1,0 +1,2 @@
+- name: reload nginx router
+  command: "/opt/nginx/reload.sh"

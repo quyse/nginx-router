@@ -12,8 +12,4 @@
       owner: no
       group: no
     notify:
-    - reload nginx
-  # reload nginx if anything changes
-  handlers:
-  - name: reload nginx
-    command: "/opt/nginx/reload.sh"
+    - reload nginx router
