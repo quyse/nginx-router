@@ -38,6 +38,7 @@
   docker_service:
     build: yes
     project_src: "/opt/nginx"
+    remove_orphans: yes
 - name: cron job for renewing certificates
   cron:
     cron_file: nginx_letsencrypt_certs
